@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TalentMatch - Trouvez votre match professionnel parfait</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-handshake"></i> TalentMatch</h1>
+        <p>Trouvez votre match professionnel parfait</p>
+    </header>
+
+    <main class="container">
+        <div class="upload-sections">
+            <div id="cv-section" class="upload-section">
+                <h2><i class="fas fa-file-alt"></i> CV</h2>
+                <div id="cvDropZone" class="drop-zone">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Glissez votre CV ici ou cliquez pour sélectionner</p>
+                    <input type="file" id="cvFile" accept=".pdf" hidden>
+                </div>
+                <div id="cvPreview" class="preview-area"></div>
+            </div>
+
+            <div id="offer-section" class="upload-section">
+                <h2><i class="fas fa-briefcase"></i> Offre d'emploi</h2>
+                <div id="offerDropZone" class="drop-zone">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Glissez l'offre d'emploi ici ou cliquez pour sélectionner</p>
+                    <input type="file" id="offerFile" accept=".pdf" hidden>
+                </div>
+                <div id="offerPreview" class="preview-area"></div>
+            </div>
+        </div>
+
+        <button id="matchButton" class="match-button">
+            <span class="button-text">Matcher</span>
+            <i class="fas fa-magic"></i>
+        </button>
+
+        <div id="results-section" class="results-section hidden">
+            <h2>Résultats du matching</h2>
+            <div class="matching-results">
+                <div class="score-container">
+                    <div class="score-pill">
+                        <span class="score-label">Score de correspondance</span>
+                        <span class="score-percentage">0</span>%
+                    </div>
+                </div>
+
+                <div class="match-details">
+                    <div class="match-card correspondances">
+                        <h3><i class="fas fa-check-circle"></i> Correspondances</h3>
+                        <ul id="correspondances-list"></ul>
+                    </div>
+
+                    <div class="match-card non-correspondances">
+                        <h3><i class="fas fa-times-circle"></i> Non-correspondances</h3>
+                        <ul id="non-correspondances-list"></ul>
+                    </div>
+                </div>
+
+                <div class="conclusion-container">
+                    <h3><i class="fas fa-lightbulb"></i> Conclusion</h3>
+                    <p id="conclusion-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="loadingIndicator" class="loading-indicator hidden">
+            <div class="handshake-animation">
+                <div class="hand left-hand"></div>
+                <div class="hand right-hand"></div>
+            </div>
+            <div class="loader-text">Analyse en cours</div>
+            <div id="loadingPercentage" class="loading-percentage">0%</div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 TalentMatch. Tous droits réservés.</p>
+    </footer>
+
+    <script src="/static/scripts.js"></script>
+</body>
+</html>

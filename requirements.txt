@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+python-multipart
+pydantic
+PyPDF2
+openai==0.27.0
+sentence-transformers==2.2.2
+scikit-learn
+python-dotenv
+Jinja2
+aiofiles
+loguru
+fastapi-cache2
